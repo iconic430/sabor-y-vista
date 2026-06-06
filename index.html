@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2D4A2D" />
+  <meta name="description" content="Sabor y Vista — Restaurante familiar cerca de la presa en Aguascalientes. Aguachiles, micheladas y sabores que enamoran. ¡Tu nuevo lugar favorito te espera!" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sabor y Vista — Tu nuevo lugar favorito" />
+  <meta property="og:description" content="Restaurante familiar cerca de la presa en Aguascalientes. Aguachiles, micheladas y la mejor vista." />
+  <meta property="og:image" content="assets/logo.png" />
+
+  <title>Sabor y Vista — Restaurante familiar en Aguascalientes</title>
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================
+       Variables & Reset
+       ============================ */
+    :root {
+      --green-900: #1B3A1E;
+      --green-800: #2D4A2D;
+      --green-700: #3B5A28;
+      --green-600: #4E6E36;
+      --green-100: #E8EFE0;
+      --gold-500: #F4C842;
+      --gold-600: #E5B83F;
+      --gold-700: #C99A26;
+      --brown-700: #8B5A2B;
+      --brown-500: #B97A47;
+      --cream:    #FAF6EE;
+      --cream-2:  #F1EAD9;
+      --white:    #FFFFFF;
+      --ink:      #1A1A1A;
+      --ink-soft: #4A4A4A;
+      --ink-mute: #7A7A7A;
+      --red:      #C73E1D;
+      --shadow-sm: 0 2px 8px rgba(27, 58, 30, 0.08);
+      --shadow-md: 0 10px 30px rgba(27, 58, 30, 0.12);
+      --shadow-lg: 0 25px 60px rgba(27, 58, 30, 0.18);
+      --radius: 16px;
+      --radius-lg: 28px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, svg { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; transition: color var(--transition); }
+    button { font-family: inherit; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--green-900);
+      text-wrap: balance;
+    }
+
+    p { text-wrap: pretty; }
+
+    section { padding: clamp(56px, 9vw, 120px) 0; position: relative; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 4vw, 32px);
+    }
+    .container--narrow { max-width: 880px; }
+
+    .eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold-700);
+    }
+
+    .h-section {
+      font-size: clamp(1.85rem, 5.6vw, 3.25rem);
+      font-weight: 700;
+    }
+    .h-section em {
+      font-style: italic;
+      color: var(--green-700);
+      font-weight: 500;
+    }
+
+    .lead {
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      color: var(--ink-soft);
+      max-width: 62ch;
+    }
+
+    /* ============================
+       Buttons
+       ============================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 26px;
+      min-height: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .btn--primary {
+      background: var(--green-800);
+      color: var(--cream);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn--primary:hover {
+      background: var(--green-900);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn--gold {
+      background: var(--gold-500);
+      color: var(--green-900);
+      box-shadow: 0 6px 18px rgba(244, 200, 66, 0.4);
+    }
+    .btn--gold:hover {
+      background: var(--gold-600);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(244, 200, 66, 0.55);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--green-900);
+      border-color: var(--green-900);
+    }
+    .btn--outline:hover {
+      background: var(--green-900);
+      color: var(--cream);
+    }
+    .btn--ghost-light {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--cream);
+      border-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+    }
+    .btn--ghost-light:hover { background: rgba(255, 255, 255, 0.22); }
+
+    /* ============================
+       Navigation
+       ============================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(250, 246, 238, 0);
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(250, 246, 238, 0.96);
+      padding: 10px 0;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--green-900);
+      letter-spacing: 0.04em;
+    }
+    .nav__brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: var(--cream);
+      padding: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition);
+    }
+    .nav.scrolled .nav__brand img {
+      background: var(--white);
+    }
+    .nav__brand:hover img { transform: rotate(-6deg); }
+    .nav__brand span { display: none; }
+
+    .nav__links {
+      display: none;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--green-900);
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold-500);
+      transition: width var(--transition);
+    }
+    .nav__links a:hover::after { width: 100%; }
+
+    .nav__cta {
+      padding: 9px 18px;
+      font-size: 0.82rem;
+      min-height: 38px;
+    }
+
+    .nav__burger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: var(--white);
+      border: none;
+      cursor: pointer;
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav__burger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--green-900);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .mobile-menu.open + * .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-menu.open + * .nav__burger span:nth-child(2) { opacity: 0; }
+    .mobile-menu.open + * .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (min-width: 480px) {
+      .nav__brand span { display: inline; }
+    }
+    @media (min-width: 900px) {
+      .nav__links { display: flex; }
+      .nav__burger { display: none; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--green-900);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+      padding: 80px 24px 40px;
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu a {
+      color: var(--cream);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 5vw, 1.9rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .mobile-menu a:hover { color: var(--gold-500); }
+    .mobile-menu__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      border-radius: 12px;
+      color: var(--cream);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ============================
+       Hero
+       ============================ */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: clamp(110px, 18vw, 140px) 0 80px;
+      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 100%);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at top, rgba(244, 200, 66, 0.2), transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(139, 90, 43, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+    .hero__banner-deco {
+      position: absolute;
+      top: -8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130%;
+      max-width: none;
+      opacity: 0.08;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero__logo {
+      width: clamp(160px, 32vw, 240px);
+      height: auto;
+      margin: 0 auto clamp(18px, 3vw, 32px);
+      filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.35));
+      animation: logoFloat 6s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .hero__tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 3.2vw, 1.65rem);
+      color: var(--gold-500);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .hero__sub {
+      font-size: clamp(0.95rem, 1.7vw, 1.1rem);
+      color: rgba(250, 246, 238, 0.8);
+      max-width: 560px;
+      margin: 0 auto clamp(32px, 5vw, 44px);
+      padding: 0 8px;
+    }
+    .hero__ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 12px;
+    }
+    .hero__ctas .btn { flex: 1 1 200px; max-width: 280px; }
+    .hero__divider {
+      margin: clamp(36px, 6vw, 56px) auto 0;
+      width: 80px;
+      height: 1px;
+      background: rgba(244, 200, 66, 0.4);
+    }
+    .hero__meta {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 3vw, 32px);
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(250, 246, 238, 0.65);
+      padding: 0 12px;
+    }
+    .hero__meta span::before {
+      content: "✦";
+      color: var(--gold-500);
+      margin-right: 6px;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(250, 246, 238, 0.5);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: float 2.4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -8px); }
+    }
+
+    /* ============================
+       Nosotros
+       ============================ */
+    .nosotros { background: var(--cream); }
+    .nosotros__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .nosotros__grid { grid-template-columns: 1fr 1fr; }
+    }
+    .nosotros__text p {
+      color: var(--ink-soft);
+      font-size: clamp(0.98rem, 1.4vw, 1.06rem);
+      margin-bottom: 18px;
+    }
+    .nosotros__text p:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--green-700);
+      float: left;
+      line-height: 0.9;
+      padding: 6px 12px 0 0;
+    }
+    .stats {
+      margin-top: 28px;
+      display: flex;
+      gap: clamp(18px, 4vw, 28px);
+      flex-wrap: wrap;
+    }
+    .stat__n {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: var(--green-700);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat__l {
+      font-size: 0.75rem;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-top: 4px;
+    }
+
+    .nosotros__visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(180deg, #6f8c3c 0%, var(--green-800) 100%);
+      box-shadow: var(--shadow-lg);
+    }
+    .nosotros__visual svg { width: 100%; height: 100%; }
+    .nosotros__visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, rgba(244, 200, 66, 0.4), transparent 60%);
+      pointer-events: none;
+    }
+    .nosotros__badge {
+      position: absolute;
+      bottom: -22px;
+      right: -22px;
+      width: clamp(96px, 16vw, 130px);
+      height: clamp(96px, 16vw, 130px);
+      background: var(--gold-500);
+      color: var(--green-900);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+      padding: 8px;
+      animation: spin 25s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
+    .nosotros__badge__inner {
+      font-size: clamp(0.6rem, 1.6vw, 0.78rem);
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      animation: spin-r 25s linear infinite;
+    }
+    @keyframes spin-r {
+      from { transform: rotate(0); }
+      to { transform: rotate(-360deg); }
+    }
+    .nosotros__badge__inner strong {
+      display: block;
+      font-size: clamp(0.9rem, 2.4vw, 1.15rem);
+      font-style: italic;
+    }
+
+    /* ============================
+       Experiencia
+       ============================ */
+    .experiencia {
+      background: var(--green-900);
+      color: var(--cream);
+      overflow: hidden;
+    }
+    .experiencia .eyebrow { color: var(--gold-500); }
+    .experiencia .eyebrow::before { background: var(--gold-500); }
+    .experiencia .h-section { color: var(--cream); }
+    .experiencia .h-section em { color: var(--gold-500); }
+    .experiencia__lead {
+      color: rgba(250, 246, 238, 0.75);
+      margin-bottom: clamp(36px, 6vw, 56px);
+      max-width: 56ch;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media (min-width: 560px) { .features { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 980px) { .features { grid-template-columns: repeat(4, 1fr); } }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(244, 200, 66, 0.12);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 32px) clamp(22px, 3vw, 28px);
+      transition: all var(--transition);
+    }
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: rgba(244, 200, 66, 0.45);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .feature__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(244, 200, 66, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-500);
+      margin-bottom: 20px;
+    }
+    .feature__icon svg { width: 26px; height: 26px; }
+    .feature h3 {
+      color: var(--cream);
+      font-size: clamp(1.2rem, 2.2vw, 1.35rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: rgba(250, 246, 238, 0.7);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ============================
+       Sabores
+       ============================ */
+    .sabores { background: var(--cream); position: relative; }
+    .sabores__intro {
+      text-align: center;
+      margin-bottom: clamp(40px, 6vw, 64px);
+    }
+    .sabores__intro .eyebrow { justify-content: center; }
+    .sabores__intro .eyebrow::before { display: none; }
+
+    .dishes {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: clamp(36px, 6vw, 56px);
+    }
+    @media (min-width: 560px) { .dishes { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 980px) { .dishes { grid-template-columns: repeat(4, 1fr); } }
+
+    .dish {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 32px);
+      border: 1px solid var(--cream-2);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .dish::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle at top right, var(--gold-500) 0%, transparent 70%);
+      opacity: 0.15;
+      transition: opacity var(--transition);
+    }
+    .dish:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-500);
+      box-shadow: var(--shadow-md);
+    }
+    .dish:hover::before { opacity: 0.3; }
+    .dish__tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(199, 62, 29, 0.08);
+      padding: 5px 11px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .dish h3 {
+      font-size: clamp(1.25rem, 2.4vw, 1.45rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--green-900);
+    }
+    .dish p {
+      color: var(--ink-soft);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .sabores__cta { text-align: center; }
+
+    /* ============================
+       Horarios
+       ============================ */
+    .horarios {
+      background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .horarios::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(244, 200, 66, 0.12), transparent 60%);
+      pointer-events: none;
+    }
+    .horarios__inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(36px, 5vw, 56px);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .horarios__inner { grid-template-columns: 1fr 1.2fr; gap: 80px; }
+    }
+    .horarios .eyebrow { color: var(--gold-500); }
+    .horarios .eyebrow::before { background: var(--gold-500); }
+    .horarios h2 { color: var(--cream); }
+    .horarios h2 em { color: var(--gold-500); }
+    .horarios__lead { color: rgba(250, 246, 238, 0.75); }
+    .horarios__ctas {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .schedule {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(244, 200, 66, 0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      padding: 8px;
+      box-shadow: var(--shadow-md);
+    }
+    .schedule__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: clamp(16px, 2.6vw, 22px) clamp(18px, 3vw, 26px);
+      border-bottom: 1px solid rgba(244, 200, 66, 0.1);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .schedule__row:last-child { border-bottom: none; }
+    .schedule__day {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .schedule__time {
+      font-size: clamp(0.92rem, 1.6vw, 1rem);
+      color: var(--gold-500);
+      font-weight: 500;
+    }
+    .schedule__closed {
+      font-size: 0.8rem;
+      color: rgba(250, 246, 238, 0.45);
+      font-style: italic;
+    }
+
+    /* ============================
+       Ubicación
+       ============================ */
+    .ubicacion { background: var(--cream); }
+    .ubicacion__head {
+      text-align: center;
+      margin-bottom: clamp(36px, 6vw, 56px);
+    }
+    .ubicacion__head .eyebrow { justify-content: center; }
+    .ubicacion__head .eyebrow::before { display: none; }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--white);
+    }
+    .map-card__map {
+      width: 100%;
+      height: clamp(320px, 50vw, 480px);
+      border: none;
+      display: block;
+    }
+    .map-card__bar {
+      padding: clamp(20px, 4vw, 32px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    @media (min-width: 700px) {
+      .map-card__bar { grid-template-columns: 1fr auto; }
+    }
+    .map-card__info {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .map-card__pin {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--green-100);
+      color: var(--green-800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .map-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.3rem);
+      font-weight: 700;
+      color: var(--green-900);
+      margin-bottom: 3px;
+    }
+    .map-card__sub {
+      color: var(--ink-mute);
+      font-size: 0.92rem;
+    }
+
+    /* ============================
+       Enlaces rápidos (todos los botones de atom.bio)
+       ============================ */
+    .enlaces {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 50%, var(--cream) 100%);
+      position: relative;
+    }
+    .enlaces__head {
+      text-align: center;
+      margin-bottom: clamp(36px, 5vw, 48px);
+    }
+    .enlaces__head .eyebrow { justify-content: center; }
+    .enlaces__head .eyebrow::before { display: none; }
+
+    .quick-links {
+      max-width: 540px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 22px 14px 14px;
+      background: var(--green-800);
+      color: var(--cream);
+      border-radius: 999px;
+      transition: all var(--transition);
+      border: 2px solid var(--green-700);
+      min-height: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-link::after {
+      content: "→";
+      margin-left: auto;
+      font-size: 1.4rem;
+      color: var(--gold-500);
+      transition: transform var(--transition);
+    }
+    .quick-link:hover {
+      transform: translateY(-3px);
+      background: var(--green-900);
+      box-shadow: 0 12px 30px rgba(27, 58, 30, 0.3);
+      border-color: var(--gold-500);
+    }
+    .quick-link:hover::after { transform: translateX(4px); }
+
+    .quick-link__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--cream);
+      padding: 3px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quick-link__avatar img { width: 100%; height: 100%; object-fit: contain; }
+    .quick-link__avatar--icon {
+      background: var(--gold-500);
+      color: var(--green-900);
+    }
+    .quick-link__avatar--icon svg { width: 22px; height: 22px; }
+
+    .quick-link__label {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2.2vw, 1.18rem);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================
+       Footer
+       ============================ */
+    .footer {
+      background: var(--green-900);
+      color: rgba(250, 246, 238, 0.7);
+      padding: clamp(48px, 7vw, 72px) 0 28px;
+      text-align: center;
+    }
+    .footer__logo {
+      width: clamp(72px, 12vw, 96px);
+      margin: 0 auto 18px;
+      opacity: 0.9;
+    }
+    .footer__brand {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .footer__tag {
+      font-style: italic;
+      color: var(--gold-500);
+      margin-bottom: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    }
+    .footer__socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .footer__social {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(244, 200, 66, 0.12);
+      color: var(--gold-500);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+    .footer__social:hover {
+      background: var(--gold-500);
+      color: var(--green-900);
+      transform: translateY(-3px);
+    }
+    .footer__social svg { width: 18px; height: 18px; }
+    .footer__links {
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 3vw, 24px);
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+    }
+    .footer__links a:hover { color: var(--gold-500); }
+    .footer__divider {
+      height: 1px;
+      background: rgba(244, 200, 66, 0.2);
+      max-width: 200px;
+      margin: 0 auto 20px;
+    }
+    .footer__copy {
+      font-size: 0.78rem;
+      color: rgba(250, 246, 238, 0.4);
+      padding: 0 18px;
+    }
+
+    /* ============================
+       Reveal animations
+       ============================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================
+       iOS / mobile fixes
+       ============================ */
+    @supports (-webkit-touch-callout: none) {
+      .hero { min-height: -webkit-fill-available; }
+    }
+
+    @media (max-width: 480px) {
+      .hero__ctas .btn { width: 100%; max-width: none; }
+      .stats { justify-content: space-between; width: 100%; }
+      .horarios__ctas .btn { flex: 1 1 100%; }
+      .hero__scroll { display: none; }
+      .h-section { font-size: clamp(1.7rem, 7.5vw, 2.2rem); }
+      .nosotros__text p:first-of-type::first-letter { font-size: 2.8rem; padding: 4px 8px 0 0; }
+      .stats { gap: 14px; }
+      .stat__n { font-size: 1.7rem; }
+      .stat__l { font-size: 0.68rem; }
+      .nosotros__visual { aspect-ratio: 1 / 1; }
+      .nosotros__badge { bottom: -14px; right: -14px; width: 86px; height: 86px; }
+      .map-card__bar { padding: 18px; }
+      .map-card__info { gap: 12px; }
+      .map-card__pin { width: 40px; height: 40px; }
+      .map-card__title { font-size: 1.1rem; }
+      .map-card__sub { font-size: 0.85rem; }
+      .map-card__bar .btn { width: 100%; }
+      .quick-link { padding: 12px 18px 12px 12px; min-height: 64px; gap: 12px; }
+      .quick-link__avatar { width: 40px; height: 40px; }
+      .quick-link__label { font-size: 1.02rem; }
+      .quick-link::after { font-size: 1.2rem; }
+      .footer__links { font-size: 0.82rem; gap: 12px; }
+      .schedule__row { padding: 14px 18px; }
+      .schedule__day { font-size: 1rem; }
+      .schedule__time { font-size: 0.9rem; }
+      .nav__brand img { width: 38px; height: 38px; }
+      .nav__brand span { display: none; }
+      .nav__cta { padding: 8px 16px; font-size: 0.78rem; min-height: 36px; }
+    }
+
+    @media (max-width: 360px) {
+      .hero__meta { gap: 8px; }
+      .hero__meta span { font-size: 0.65rem; }
+      .footer__links a { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       Mobile menu (live outside nav so overlay covers it)
+       ============================ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="closeMenu" aria-label="Cerrar menú">✕</button>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#sabores">Sabores</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#enlaces">Enlaces</a>
+  </div>
+
+  <!-- ============================
+       Navigation
+       ============================ -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__brand">
+        <img src="assets/logo.png" alt="Sabor y Vista" />
+        <span>SABOR Y VISTA</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#sabores">Sabores</a></li>
+        <li><a href="#horarios">Horarios</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+      <a href="assets/Nuestro_Menu.pdf" target="_blank" rel="noopener" class="btn btn--gold nav__cta">Ver menú</a>
+      <button class="nav__burger" id="burger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================
+       Hero
+       ============================ -->
+  <header class="hero" id="inicio">
+    <img class="hero__banner-deco" src="assets/banner.png" alt="" aria-hidden="true" />
+    <div class="container hero__inner">
+      <img class="hero__logo" src="assets/logo.png" alt="Sabor y Vista — Logo" />
+      <p class="hero__tagline">¡Tu nuevo lugar favorito te espera! 🍽️☀️</p>
+      <p class="hero__sub">Aguachiles, micheladas y momentos para recordar. Un rincón familiar a las afueras de Aguascalientes, junto a la presa, donde el sabor se sirve con vista.</p>
+      <div class="hero__ctas">
+        <a href="assets/Nuestro_Menu.pdf" target="_blank" rel="noopener" class="btn btn--gold">🍽️ Ver el menú</a>
+        <a href="#ubicacion" class="btn btn--ghost-light">📍 Cómo llegar</a>
+      </div>
+      <div class="hero__divider"></div>
+      <div class="hero__meta">
+        <span>Cerca de la Presa</span>
+        <span>Aguascalientes</span>
+        <span>Vie · Sáb · Dom</span>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Descúbrelo</span>
+      <span>↓</span>
+    </div>
+  </header>
+
+  <!-- ============================
+       Nosotros
+       ============================ -->
+  <section class="nosotros" id="nosotros">
+    <div class="container nosotros__grid">
+      <div class="nosotros__text reveal">
+        <span class="eyebrow">Quiénes Somos</span>
+        <h2 class="h-section">Donde el <em>sabor</em> se sirve con <em>vista</em>.</h2>
+        <div style="margin-top: 24px;">
+          <p>Sabor y Vista nace de una idea sencilla: ofrecer un lugar para escapar del ruido de la ciudad y reencontrarte con lo que importa — la mesa, los tuyos y un paisaje que invita a quedarse.</p>
+          <p>A pocos minutos de Aguascalientes, junto a la presa, abrimos las puertas de un rincón familiar pensado para los fines de semana. Aquí los aguachiles tienen el frescor del mar, las micheladas se sirven bien frías y la sobremesa nunca tiene prisa.</p>
+          <p>Somos un negocio familiar que cree que la buena comida es un pretexto para crear recuerdos. Si vienes con la familia, con amigos o con tu pareja, en Sabor y Vista encontrarás el mismo ambiente cálido, la misma cocina honesta y la misma vista que enamora desde el primer momento.</p>
+        </div>
+        <div class="stats">
+          <div>
+            <div class="stat__n">100%</div>
+            <div class="stat__l">Familiar</div>
+          </div>
+          <div>
+            <div class="stat__n">∞</div>
+            <div class="stat__l">Buenos momentos</div>
+          </div>
+          <div>
+            <div class="stat__n">1</div>
+            <div class="stat__l">Vista que enamora</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nosotros__visual reveal">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F4C842"/>
+              <stop offset="35%" stop-color="#E5B83F"/>
+              <stop offset="65%" stop-color="#A87D3B"/>
+              <stop offset="100%" stop-color="#3B5A28"/>
+            </linearGradient>
+            <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFEFB0" stop-opacity="1"/>
+              <stop offset="60%" stop-color="#F4C842" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#F4C842" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="lakeGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a7c4a"/>
+              <stop offset="100%" stop-color="#2D4A2D"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="400" height="500" fill="url(#skyGrad)"/>
+          <circle cx="200" cy="240" r="180" fill="url(#sunGlow)"/>
+          <circle cx="200" cy="240" r="55" fill="#FFE38A"/>
+
+          <path d="M0 280 Q60 240 110 260 Q170 220 230 250 Q290 220 350 245 Q400 235 400 260 L400 320 L0 320 Z" fill="#6B4520" opacity="0.8"/>
+          <path d="M0 310 Q50 280 100 295 Q160 270 220 290 Q280 265 340 285 Q400 280 400 300 L400 360 L0 360 Z" fill="#5A3A1B"/>
+
+          <rect y="360" width="400" height="140" fill="url(#lakeGrad)"/>
+          <ellipse cx="200" cy="370" rx="120" ry="2" fill="#FFE38A" opacity="0.3"/>
+          <ellipse cx="200" cy="380" rx="80" ry="1.5" fill="#FFE38A" opacity="0.2"/>
+          <ellipse cx="200" cy="390" rx="50" ry="1" fill="#FFE38A" opacity="0.15"/>
+
+          <path d="M0 460 Q20 440 35 455 Q50 430 70 450 Q90 425 110 448 Q130 432 150 450 Q170 420 195 445 Q220 425 245 448 Q270 430 295 450 Q320 425 345 450 Q370 435 400 450 L400 500 L0 500 Z" fill="#1B3A1E"/>
+        </svg>
+        <div class="nosotros__badge" aria-hidden="true">
+          <div class="nosotros__badge__inner">
+            <strong>SABOR<br/>Y VISTA</strong>
+            <span>Aguascalientes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Experiencia
+       ============================ -->
+  <section class="experiencia" id="experiencia">
+    <div class="container">
+      <div class="reveal" style="max-width: 700px;">
+        <span class="eyebrow">La Experiencia</span>
+        <h2 class="h-section">Cuatro razones para venir, <em>mil</em> para volver.</h2>
+        <p class="lead experiencia__lead">Más que un restaurante, somos el plan perfecto para tu fin de semana. Un lugar donde cada detalle está pensado para que te sientas como en casa — pero con vista.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature reveal">
+          <div class="feature__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <h3>Vista que enamora</h3>
+          <p>Una terraza al aire libre con vista a la presa y a las montañas. Atardeceres que se quedan en la memoria — y en el celular.</p>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11V5h14v6M5 11v9h14v-9M9 5V3h6v2"/></svg>
+          </div>
+          <h3>Sabores honestos</h3>
+          <p>Aguachiles fresquísimos, micheladas bien servidas y un menú pensado para compartir. Cocina sin pretensiones, con sazón de aquí.</p>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100 8 4 4 0 000-8zm14 14v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Plan familiar</h3>
+          <p>Un espacio pensado para todos: niños corriendo, abuelos en la sobremesa, amigos en la barra, parejas en la terraza. Aquí cabe todo el mundo.</p>
+        </div>
+
+        <div class="feature reveal">
+          <div class="feature__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Solo los findes</h3>
+          <p>Viernes, sábado y domingo. Porque los buenos momentos merecen su día, y nosotros nos preparamos toda la semana para recibirte como se debe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Sabores
+       ============================ -->
+  <section class="sabores" id="sabores">
+    <div class="container">
+      <div class="sabores__intro reveal">
+        <span class="eyebrow">Nuestros Sabores</span>
+        <h2 class="h-section">Lo que servimos con <em>orgullo</em>.</h2>
+        <p class="lead" style="margin: 22px auto 0;">Un menú breve, pero cargado de sazón. Productos frescos, recetas de toda la vida y ese toque de casa que se nota en cada bocado.</p>
+      </div>
+
+      <div class="dishes">
+        <div class="dish reveal">
+          <span class="dish__tag">Especialidad</span>
+          <h3>Aguachiles</h3>
+          <p>Frescos, picosos y bien servidos. Camarón fresco, limón al punto y ese toque que nos hace inconfundibles.</p>
+        </div>
+        <div class="dish reveal">
+          <span class="dish__tag">Refrescantes</span>
+          <h3>Micheladas</h3>
+          <p>De las que enfrían el alma. Servidas como Dios manda, con escarcha al gusto y mucho hielo.</p>
+        </div>
+        <div class="dish reveal">
+          <span class="dish__tag">Para compartir</span>
+          <h3>Botanas y entradas</h3>
+          <p>Las clásicas mexicanas, hechas con cariño. Perfectas para abrir boca mientras llega lo demás.</p>
+        </div>
+        <div class="dish reveal">
+          <span class="dish__tag">El cierre perfecto</span>
+          <h3>Postres y café</h3>
+          <p>Porque ninguna comida está completa sin algo dulce y una buena sobremesa frente al paisaje.</p>
+        </div>
+      </div>
+
+      <div class="sabores__cta reveal">
+        <a href="assets/Nuestro_Menu.pdf" target="_blank" rel="noopener" class="btn btn--primary">Ver menú completo (PDF) →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Horarios
+       ============================ -->
+  <section class="horarios" id="horarios">
+    <div class="container horarios__inner">
+      <div class="reveal">
+        <span class="eyebrow">¿Cuándo abrimos?</span>
+        <h2 class="h-section">Solo <em>tres días</em>, para que valgan por toda la semana.</h2>
+        <p class="lead horarios__lead" style="margin-top: 20px;">Abrimos viernes, sábado y domingo. Te recomendamos llegar con tiempo y, si vienes en grupo grande, escribirnos por Instagram para apartar.</p>
+        <div class="horarios__ctas">
+          <a href="https://www.instagram.com/saboryvista_ags" target="_blank" rel="noopener" class="btn btn--gold">Escribir por Instagram</a>
+          <a href="#ubicacion" class="btn btn--ghost-light">Ver ubicación</a>
+        </div>
+      </div>
+
+      <div class="schedule reveal">
+        <div class="schedule__row">
+          <span class="schedule__day">Lun — Jue</span>
+          <span class="schedule__closed">Cerrado · te esperamos el viernes</span>
+        </div>
+        <div class="schedule__row">
+          <span class="schedule__day">Viernes</span>
+          <span class="schedule__time">1:30 pm – 6:30 pm</span>
+        </div>
+        <div class="schedule__row">
+          <span class="schedule__day">Sábado</span>
+          <span class="schedule__time">10:00 am – 6:30 pm</span>
+        </div>
+        <div class="schedule__row">
+          <span class="schedule__day">Domingo</span>
+          <span class="schedule__time">10:00 am – 6:30 pm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Ubicación
+       ============================ -->
+  <section class="ubicacion" id="ubicacion">
+    <div class="container">
+      <div class="ubicacion__head reveal">
+        <span class="eyebrow">Ubicación</span>
+        <h2 class="h-section">Cerca, pero lejos del bullicio.</h2>
+        <p class="lead" style="margin: 22px auto 0;">A las afueras de Aguascalientes, junto a la presa. El camino vale la pena.</p>
+      </div>
+
+      <div class="map-card reveal">
+        <iframe
+          class="map-card__map"
+          src="https://www.google.com/maps?q=Sabor+y+Vista+Aguascalientes&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="Mapa de Sabor y Vista"></iframe>
+        <div class="map-card__bar">
+          <div class="map-card__info">
+            <div class="map-card__pin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="map-card__title">Sabor y Vista</div>
+              <div class="map-card__sub">A pocos minutos de Aguascalientes · Junto a la presa</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <a href="https://g.co/kgs/c6y5mZg" target="_blank" rel="noopener" class="btn btn--primary">Abrir en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Enlaces rápidos (mismo orden que atom.bio)
+       ============================ -->
+  <section class="enlaces" id="enlaces">
+    <div class="container">
+      <div class="enlaces__head reveal">
+        <span class="eyebrow">Todo en un lugar</span>
+        <h2 class="h-section">Síguenos y <em>conéctate</em>.</h2>
+        <p class="lead" style="margin: 22px auto 0;">Menú, redes y opiniones. Todos los enlaces oficiales de Sabor y Vista en un solo lugar.</p>
+      </div>
+
+      <div class="quick-links">
+        <a href="assets/Nuestro_Menu.pdf" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar"><img src="assets/logo.png" alt=""></span>
+          <span class="quick-link__label">Nuestro Menú</span>
+        </a>
+
+        <a href="https://www.instagram.com/saboryvista_ags" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar"><img src="assets/logo.png" alt=""></span>
+          <span class="quick-link__label">Instagram</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@saboryvista_ags" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar"><img src="assets/logo.png" alt=""></span>
+          <span class="quick-link__label">TikTok</span>
+        </a>
+
+        <a href="https://www.facebook.com/share/16waMondAH/" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar"><img src="assets/logo.png" alt=""></span>
+          <span class="quick-link__label">Facebook</span>
+        </a>
+
+        <a href="https://share.google/Wgow0XbnAc3BOqdpD" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar quick-link__avatar--icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+          <span class="quick-link__label">Apóyanos en Google ☺️💛</span>
+        </a>
+
+        <a href="https://g.co/kgs/c6y5mZg" target="_blank" rel="noopener" class="quick-link reveal">
+          <span class="quick-link__avatar quick-link__avatar--icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span class="quick-link__label">Cómo llegar</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       Footer
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <img class="footer__logo" src="assets/logo.png" alt="Sabor y Vista" />
+      <div class="footer__brand">SABOR Y VISTA</div>
+      <div class="footer__tag">¡Tu nuevo lugar favorito te espera!</div>
+
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/saboryvista_ags" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@saboryvista_ags" target="_blank" rel="noopener" class="footer__social" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V9.01a8.16 8.16 0 004.77 1.52V7.08a4.85 4.85 0 01-1.84-.39z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/16waMondAH/" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg>
+        </a>
+        <a href="https://share.google/Wgow0XbnAc3BOqdpD" target="_blank" rel="noopener" class="footer__social" aria-label="Google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </a>
+      </div>
+
+      <div class="footer__links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#sabores">Sabores</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#enlaces">Enlaces</a>
+      </div>
+      <div class="footer__divider"></div>
+      <div class="footer__copy">© <span id="year"></span> Sabor y Vista · Aguascalientes, México. Hecho con cariño 🌅</div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       Scripts
+       ============================ -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 30) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const toggleMenu = (open) => {
+      mobileMenu.classList.toggle('open', open ?? !mobileMenu.classList.contains('open'));
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    };
+    burger.addEventListener('click', () => toggleMenu(true));
+    closeMenu.addEventListener('click', () => toggleMenu(false));
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // Reveal on scroll
+    if ('IntersectionObserver' in window) {
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => io.observe(el));
+    }
+  </script>
+</body>
+</html>

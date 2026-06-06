@@ -367,9 +367,19 @@
       transform: translateX(-50%);
       width: 130%;
       max-width: none;
-      opacity: 0.08;
+      opacity: 0.10;
       pointer-events: none;
-      filter: blur(1px);
+      filter: blur(1.5px);
+    }
+
+    /* En móvil: banner más visible y ocupando todo el ancho del hero */
+    @media (max-width: 900px) {
+      .hero__banner-deco {
+        top: 0;
+        width: 220%;
+        opacity: 0.22;
+        filter: blur(2.5px);
+      }
     }
     .hero__inner {
       position: relative;
@@ -510,16 +520,51 @@
       aspect-ratio: 4 / 5;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      background: linear-gradient(180deg, #6f8c3c 0%, var(--green-800) 100%);
+      background: var(--green-800);
       box-shadow: var(--shadow-lg);
     }
-    .nosotros__visual svg { width: 100%; height: 100%; }
+    .nosotros__visual img.nosotros__photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .nosotros__visual::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at top, rgba(244, 200, 66, 0.4), transparent 60%);
+      background:
+        linear-gradient(180deg, rgba(27, 58, 30, 0) 55%, rgba(27, 58, 30, 0.55) 100%),
+        radial-gradient(ellipse at top, rgba(244, 200, 66, 0.18), transparent 60%);
       pointer-events: none;
+    }
+    .nosotros__caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 2;
+      color: var(--cream);
+      font-family: 'Playfair Display', serif;
+    }
+    .nosotros__caption__big {
+      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .nosotros__caption__small {
+      display: block;
+      margin-top: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-500);
     }
     .nosotros__badge {
       position: absolute;
@@ -1131,39 +1176,11 @@
       </div>
 
       <div class="nosotros__visual reveal">
-        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#F4C842"/>
-              <stop offset="35%" stop-color="#E5B83F"/>
-              <stop offset="65%" stop-color="#A87D3B"/>
-              <stop offset="100%" stop-color="#3B5A28"/>
-            </linearGradient>
-            <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#FFEFB0" stop-opacity="1"/>
-              <stop offset="60%" stop-color="#F4C842" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#F4C842" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="lakeGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#5a7c4a"/>
-              <stop offset="100%" stop-color="#2D4A2D"/>
-            </linearGradient>
-          </defs>
-
-          <rect width="400" height="500" fill="url(#skyGrad)"/>
-          <circle cx="200" cy="240" r="180" fill="url(#sunGlow)"/>
-          <circle cx="200" cy="240" r="55" fill="#FFE38A"/>
-
-          <path d="M0 280 Q60 240 110 260 Q170 220 230 250 Q290 220 350 245 Q400 235 400 260 L400 320 L0 320 Z" fill="#6B4520" opacity="0.8"/>
-          <path d="M0 310 Q50 280 100 295 Q160 270 220 290 Q280 265 340 285 Q400 280 400 300 L400 360 L0 360 Z" fill="#5A3A1B"/>
-
-          <rect y="360" width="400" height="140" fill="url(#lakeGrad)"/>
-          <ellipse cx="200" cy="370" rx="120" ry="2" fill="#FFE38A" opacity="0.3"/>
-          <ellipse cx="200" cy="380" rx="80" ry="1.5" fill="#FFE38A" opacity="0.2"/>
-          <ellipse cx="200" cy="390" rx="50" ry="1" fill="#FFE38A" opacity="0.15"/>
-
-          <path d="M0 460 Q20 440 35 455 Q50 430 70 450 Q90 425 110 448 Q130 432 150 450 Q170 420 195 445 Q220 425 245 448 Q270 430 295 450 Q320 425 345 450 Q370 435 400 450 L400 500 L0 500 Z" fill="#1B3A1E"/>
-        </svg>
+        <img class="nosotros__photo" src="assets/vista.jpg" alt="Vista desde Sabor y Vista — montañas, cielo y atardecer en Aguascalientes" loading="lazy" />
+        <div class="nosotros__caption">
+          <span class="nosotros__caption__small">La vista que te recibe</span>
+          <span class="nosotros__caption__big">"Atardeceres que se quedan en la memoria."</span>
+        </div>
         <div class="nosotros__badge" aria-hidden="true">
           <div class="nosotros__badge__inner">
             <strong>SABOR<br/>Y VISTA</strong>
@@ -1366,7 +1383,7 @@
           <span class="quick-link__label">Facebook</span>
         </a>
 
-        <a href="https://share.google/Wgow0XbnAc3BOqdpD" target="_blank" rel="noopener" class="quick-link reveal">
+        <a href="https://g.co/kgs/c6y5mZg" target="_blank" rel="noopener" class="quick-link reveal">
           <span class="quick-link__avatar quick-link__avatar--icon">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
           </span>
@@ -1402,7 +1419,7 @@
         <a href="https://www.facebook.com/share/16waMondAH/" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg>
         </a>
-        <a href="https://share.google/Wgow0XbnAc3BOqdpD" target="_blank" rel="noopener" class="footer__social" aria-label="Google">
+        <a href="https://g.co/kgs/c6y5mZg" target="_blank" rel="noopener" class="footer__social" aria-label="Google">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01z"/></svg>
         </a>
       </div>

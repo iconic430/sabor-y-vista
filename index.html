@@ -1433,7 +1433,7 @@
         <a href="#enlaces">Enlaces</a>
       </div>
       <div class="footer__divider"></div>
-      <div class="footer__copy">© <span id="year"></span> Sabor y Vista · Aguascalientes, México. Hecho con cariño 🌅</div>
+      <div class="footer__copy">Powered by Iconic Group</div>
     </div>
   </footer>
 
@@ -1441,7 +1441,8 @@
        Scripts
        ============================ -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // Nav scroll state
     const nav = document.getElementById('nav');
